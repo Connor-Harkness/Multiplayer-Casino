@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Poker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen">
+            <div class="welcome-container">
+                <h1 class="game-title">🃏 Multiplayer Poker</h1>
+                <p class="game-subtitle">Texas Hold'em - Up to 4 Players</p>
+                
+                <div class="welcome-form">
+                    <input type="text" id="player-name" placeholder="Enter your name" maxlength="20">
+                    
+                    <div class="button-group">
+                        <button id="create-room-btn" class="btn btn-primary">Create Room</button>
+                        <button id="join-room-btn" class="btn btn-secondary">Join Room</button>
+                    </div>
+                    
+                    <div id="join-room-form" class="join-form hidden">
+                        <input type="text" id="room-id" placeholder="Enter Room ID" maxlength="6">
+                        <button id="join-confirm-btn" class="btn btn-primary">Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lobby Screen -->
+        <div id="lobby-screen" class="screen hidden">
+            <div class="lobby-container">
+                <h2>Poker Lobby</h2>
+                <div class="room-info">
+                    <p>Room ID: <span id="room-id-display" class="room-id"></span></p>
+                    <button id="copy-room-id" class="btn btn-small">Copy ID</button>
+                </div>
+                
+                <div class="players-list">
+                    <h3>Players (<span id="player-count">0</span>/4)</h3>
+                    <div id="lobby-players"></div>
+                </div>
+                
+                <div class="lobby-actions">
+                    <button id="start-game-btn" class="btn btn-success disabled">Start Game</button>
+                    <button id="leave-room-btn" class="btn btn-danger">Leave Room</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-container">
+                <!-- Game Header -->
+                <div class="game-header">
+                    <div class="pot-info">
+                        <span class="pot-label">Pot:</span>
+                        <span id="pot-amount" class="pot-amount">$0</span>
+                    </div>
+                    <div class="round-info">
+                        <span id="current-round" class="current-round">Pre-flop</span>
+                    </div>
+                </div>
+
+                <!-- Community Cards -->
+                <div class="community-area">
+                    <div id="community-cards" class="community-cards">
+                        <!-- Cards will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Players Area -->
+                <div class="players-area">
+                    <div id="game-players" class="game-players">
+                        <!-- Player cards will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Player Hand -->
+                <div class="player-hand">
+                    <div class="hand-title">Your Hand</div>
+                    <div id="player-cards" class="player-cards">
+                        <!-- Player's cards will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="game-controls">
+                    <div class="bet-controls">
+                        <input type="range" id="bet-slider" min="0" max="250" value="0" class="bet-slider">
+                        <div class="bet-amount">
+                            <span>Bet: $</span>
+                            <span id="bet-amount">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="fold-btn" class="btn btn-danger">Fold</button>
+                        <button id="check-btn" class="btn btn-secondary">Check</button>
+                        <button id="call-btn" class="btn btn-primary">Call</button>
+                        <button id="raise-btn" class="btn btn-success">Raise</button>
+                    </div>
+                </div>
+
+                <!-- Game Status -->
+                <div class="game-status">
+                    <div id="current-player-indicator" class="current-player"></div>
+                    <div id="game-messages" class="game-messages"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Winner Screen -->
+        <div id="winner-screen" class="screen hidden">
+            <div class="winner-container">
+                <h2>Game Over!</h2>
+                <div id="winner-info"></div>
+                <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+                <button id="back-to-lobby-btn" class="btn btn-secondary">Back to Lobby</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
