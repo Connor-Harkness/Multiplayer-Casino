@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multiplayer Casino - Hub</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app" class="container">
+      <header class="header">
+        <h1>🎰 Multiplayer Casino</h1>
+        <div class="profile">
+          <input id="playerName" type="text" placeholder="Your name" maxlength="20" />
+          <button id="saveName" class="btn">Save</button>
+          <div class="points">Points: <span id="points">-</span></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="games">
+          <h2>Games</h2>
+          <div class="game-grid">
+            <a href="/blackjack.html" class="game-card">
+              <div class="game-title">Blackjack</div>
+              <div class="game-desc">Play against dealer with friends.</div>
+            </a>
+            <a href="/poker.html" class="game-card">
+              <div class="game-title">Poker</div>
+              <div class="game-desc">Texas Hold'em with bots and friends.</div>
+            </a>
+          </div>
+        </section>
+
+        <section class="leaderboard">
+          <h2>Leaderboard</h2>
+          <ol id="leaderboardList"></ol>
+        </section>
+      </main>
+
+      <footer class="footer">Built to be extendable. Add more games in /games and link them here.</footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/hub.js"></script>
+  </body>
+</html>
