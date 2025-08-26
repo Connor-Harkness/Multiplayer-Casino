@@ -1,9 +1,0 @@
-/* Reuse styles from Blackjack game, simplified */
-#app{min-height:80vh}
-.status{margin:.5rem 0;color:#a0aec0}
-.section{background:#2d3748;border:1px solid #4a5568;border-radius:12px;padding:1rem;margin-bottom:1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-.card{width:60px;height:84px;background:#fff;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;padding:4px;font-weight:bold;font-size:12px;color:#000;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-.card.red{color:#dc2626}
-.card.hidden{background:linear-gradient(135deg,#1e3a8a,#3730a3);color:#fff;align-items:center;justify-content:center}
-.btn{margin:.25rem}
