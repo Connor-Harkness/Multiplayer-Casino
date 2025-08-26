@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Casino</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="screen active">
+            <div class="container">
+                <h1 class="casino-title">🎰 Multiplayer Casino</h1>
+                <div class="auth-card">
+                    <div class="auth-tabs">
+                        <button id="loginTab" class="auth-tab active">Login</button>
+                        <button id="signupTab" class="auth-tab">Sign Up</button>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form active">
+                        <div class="input-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" id="loginUsername" placeholder="Enter your username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    
+                    <!-- Signup Form -->
+                    <form id="signupForm" class="auth-form">
+                        <div class="input-group">
+                            <label for="signupUsername">Username</label>
+                            <input type="text" id="signupUsername" placeholder="Choose a username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" placeholder="Choose a password" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Casino Lobby -->
+        <div id="casinoLobby" class="screen">
+            <div class="container">
+                <div class="lobby-header">
+                    <h1 class="lobby-title">🎰 Casino Lobby</h1>
+                    <div class="user-info">
+                        <span class="welcome-text">Welcome, <span id="currentUsername"></span>!</span>
+                        <div class="balance">
+                            💰 <span id="currentBalance">250</span> points
+                        </div>
+                        <button id="logoutBtn" class="btn btn-danger">Logout</button>
+                    </div>
+                </div>
+                
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="game-icon">🃏</div>
+                        <h3>Blackjack</h3>
+                        <p>Classic 21 card game with up to 4 players</p>
+                        <button id="playBlackjack" class="btn btn-primary">Play Blackjack</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-icon">♠️</div>
+                        <h3>Poker</h3>
+                        <p>Texas Hold'em with community cards</p>
+                        <button id="playPoker" class="btn btn-primary">Play Poker</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Error</h3>
+                <button class="close-btn" id="closeError">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
