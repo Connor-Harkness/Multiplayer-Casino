@@ -1,0 +1,25 @@
+{
+  "name": "multiplayer-casino",
+  "version": "1.0.0",
+  "description": "A unified multiplayer casino with Blackjack and Poker games, user accounts, and SQLite database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["casino", "blackjack", "poker", "multiplayer", "websocket", "sqlite"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "sqlite3": "^5.1.6",
+    "bcryptjs": "^2.4.3",
+    "express-session": "^1.17.3",
+    "uuid": "^9.0.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
